@@ -21,7 +21,7 @@ WORKDIR /go/src/agones.dev/agones/examples/simple-game-server
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
 
 # final image
-FROM alpine:3.14
+FROM alpine:3.16
 
 RUN adduser -D -u 1000 server
 COPY --from=builder /go/src/agones.dev/agones/examples/simple-game-server/server /home/server/server
